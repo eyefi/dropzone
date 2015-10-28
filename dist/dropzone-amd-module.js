@@ -934,6 +934,7 @@
 
     Dropzone.prototype._addFilesFromDirectory = function(directory, path) {
       var dirReader, errorHandler, readEntries;
+      console.log('_addFilesFromDirectory', directory, path);
       dirReader = directory.createReader();
       errorHandler = function(error) {
         return typeof console !== "undefined" && console !== null ? typeof console.log === "function" ? console.log(error) : void 0 : void 0;
@@ -942,6 +943,7 @@
         return function() {
           return dirReader.readEntries(function(entries) {
             var entry, _i, _len;
+            console.log('dirReader.readEntries', entries.length, entries);
             if (entries.length > 0) {
               for (_i = 0, _len = entries.length; _i < _len; _i++) {
                 entry = entries[_i];

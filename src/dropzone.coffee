@@ -887,12 +887,14 @@ class Dropzone extends Emitter
 
   # Goes through the directory, and adds each file it finds recursively
   _addFilesFromDirectory: (directory, path) ->
+    console.log '_addFilesFromDirectory', directory, path
     dirReader = directory.createReader()
 
     errorHandler = (error) -> console?.log? error
 
     readEntries = () =>
       dirReader.readEntries (entries) =>
+        console.log 'dirReader.readEntries', entries.length, entries
         if entries.length > 0
           for entry in entries
             if entry.isFile
