@@ -893,6 +893,7 @@ class Dropzone extends Emitter
 
     readEntries = () =>
       dirReader.readEntries (entries) =>
+        console.log 'entries:', entries.length, entries
         if entries.length > 0
           for entry in entries
             if entry.isFile
